@@ -47,6 +47,7 @@ DETAILS FOR SPECTASONIC
 
 
 ```
+cd /etc/apache/sites-available
 sudo nano spectasonic.local.conf
 
 <VirtualHost *:80>
@@ -80,10 +81,23 @@ Change Root Password
 
 ```
 mysqladmin -u root password root
+```
+
+Create the database with
+
+```
 php bin/console doctrine:database:create
 
 ```
 
+Nb: Database name is on `app/config/parameters.yml`.
+
+Other solution if base not created
+
+```
+mysql -u root -proot
+CREATE DATABASE database_name;
+```
 * Restart apache
 
 ```
